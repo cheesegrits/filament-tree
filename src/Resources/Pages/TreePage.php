@@ -2,9 +2,13 @@
 
 namespace SolutionForest\FilamentTree\Resources\Pages;
 
-use Filament\Pages\Actions\CreateAction;
-use Filament\Resources\Pages\Concerns\UsesResourceForm;
+use Filament\Actions\CreateAction;
+//use Filament\Resources\Pages\Concerns\UsesResourceForm;
+use Filament\Panel;
+use Filament\Resources\Pages\PageRegistration;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route as RouteFacade;
 use Illuminate\Support\Str;
 use SolutionForest\FilamentTree\Actions\DeleteAction;
 use SolutionForest\FilamentTree\Actions\EditAction;
@@ -13,7 +17,7 @@ use SolutionForest\FilamentTree\Pages\TreePage as BasePage;
 
 abstract class TreePage extends BasePage
 {
-    use UsesResourceForm;
+    //    use UsesResourceForm;
 
     protected static ?string $breadcrumb = null;
 
@@ -21,15 +25,21 @@ abstract class TreePage extends BasePage
 
     protected function getFormSchema(): array
     {
-        return $this->getResourceForm(columns: 2)->getSchema();
+//        return $this->getResourceForm(columns: 2)->getSchema();
+        return [];
     }
 
-    public static function route(string $path): array
+    public static function route(string $path): PageRegistration
     {
-        return [
-            'class' => static::class,
-            'route' => $path,
-        ];
+        //        return [
+        //            'class' => static::class,
+        //            'route' => $path,
+        //        ];
+        return new PageRegistration(
+            page: static::class,
+            route: fn (Panel $panel): Route => RouteFacade::get($path, static::class)
+                ->middleware(static::getRouteMiddleware($panel)),
+        );
     }
 
     public function getBreadcrumb(): ?string
@@ -37,7 +47,7 @@ abstract class TreePage extends BasePage
         return static::$breadcrumb ?? static::getTitle();
     }
 
-    protected function getBreadcrumbs(): array
+    public function getBreadcrumbs(): array
     {
         $resource = static::getResource();
 
@@ -53,7 +63,7 @@ abstract class TreePage extends BasePage
     {
         abort_unless(static::getResource()::canViewAny(), 403);
     }
-    
+
     protected function configureCreateAction(CreateAction $action): CreateAction
     {
         return parent::configureCreateAction($action)
@@ -89,11 +99,11 @@ abstract class TreePage extends BasePage
         return static::$resource;
     }
 
-    protected function getTitle(): string
+    public function getTitle(): string
     {
         return static::$title ?? Str::headline(static::getResource()::getPluralModelLabel());
     }
-    
+
     public function getTableRecordTitle(Model $record): string
     {
         return static::getResource()::getRecordTitle($record);

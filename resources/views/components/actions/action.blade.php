@@ -5,7 +5,8 @@
 ])
 
 @php
-if ((! $action->getAction()) || $action->getUrl()) {
+//if ((! $action->getAction()) || $action->getUrl()) {
+if ($action->getUrl()) {
     $wireClickAction = null;
 } elseif ($record = $action->getRecord()) {
     $wireClickAction = "mountTreeAction('{$action->getName()}', '{$this->getRecordKey($record)}')";

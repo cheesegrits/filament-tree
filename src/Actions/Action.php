@@ -3,15 +3,15 @@
 namespace SolutionForest\FilamentTree\Actions;
 
 
-use Filament\Support\Actions\Action as BaseAction;
-use Filament\Support\Actions\Concerns\CanBeDisabled;
-use Filament\Support\Actions\Concerns\CanBeOutlined;
-use Filament\Support\Actions\Concerns\CanOpenUrl;
-use Filament\Support\Actions\Concerns\HasGroupedIcon;
-use Filament\Support\Actions\Concerns\HasTooltip;
-use Filament\Support\Actions\Concerns\InteractsWithRecord;
-use Filament\Support\Actions\Contracts\Groupable;
-use Filament\Support\Actions\Contracts\HasRecord;
+use Filament\Actions\Action as BaseAction;
+use Filament\Actions\Concerns\CanBeDisabled;
+use Filament\Actions\Concerns\CanBeOutlined;
+use Filament\Actions\Concerns\CanOpenUrl;
+use Filament\Actions\Concerns\HasGroupedIcon;
+use Filament\Actions\Concerns\HasTooltip;
+use Filament\Actions\Concerns\InteractsWithRecord;
+use Filament\Actions\Contracts\Groupable;
+use Filament\Actions\Contracts\HasRecord;
 use Illuminate\Database\Eloquent\Model;
 use SolutionForest\FilamentTree\Actions\Modal\Action as ModalAction;
 use SolutionForest\FilamentTree\Concern\BelongsToTree;
@@ -66,7 +66,7 @@ class Action extends BaseAction implements Groupable, HasRecord
         return ModalAction::class;
     }
 
-    public static function makeModalAction(string $name): ModalAction
+    public function makeModalAction(string $name): ModalAction
     {
         /** @var ModalAction $action */
         $action = parent::makeModalAction($name);

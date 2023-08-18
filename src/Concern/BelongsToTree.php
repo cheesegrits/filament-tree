@@ -2,6 +2,7 @@
 
 namespace SolutionForest\FilamentTree\Concern;
 
+use Livewire\Component;
 use SolutionForest\FilamentTree\Components\Tree;
 use SolutionForest\FilamentTree\Contract\HasTree;
 
@@ -21,7 +22,7 @@ trait BelongsToTree
         return $this->tree;
     }
 
-    public function getLivewire(): HasTree
+    public function getLivewire(): Component
     {
         return $this->getTree()->getLivewire();
     }

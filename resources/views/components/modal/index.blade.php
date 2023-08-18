@@ -8,7 +8,7 @@
     'trigger',
 ])
 
-<x-filament-support::modal
+<x-filament::modal
     :attributes="\Filament\Support\prepare_inherited_attributes($attributes)->merge($slots)"
     :dark-mode="config('filament.dark_mode')"
     heading-component="filament-tree::modal.heading"
@@ -16,4 +16,4 @@
     subheading-component="filament-tree::modal.subheading"
 >
     {{ $slot }}
-</x-filament-support::modal>
+</x-filament::modal>

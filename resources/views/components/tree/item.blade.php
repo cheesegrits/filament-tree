@@ -29,8 +29,8 @@
         ])>
 
         <button type="button" class="h-full flex items-center bg-gray-50 rounded-lg border-r border-gray-300 px-px">
-            <x-heroicon-o-dots-vertical class="text-gray-400 w-4 h-4 -mr-2"/>
-            <x-heroicon-o-dots-vertical class="text-gray-400 w-4 h-4"/>
+            <x-heroicon-o-ellipsis-vertical class="text-gray-400 w-4 h-4 -mr-2"/>
+            <x-heroicon-o-ellipsis-vertical class="text-gray-400 w-4 h-4"/>
         </button>
 
         <div class="dd-content dd-nodrag ml-2 flex gap-1">

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use SolutionForest\FilamentTree\Support\Utils;
 
-trait ModelTree
+trait ModelTreePivot
 {
     use SupportTranslation {
         SupportTranslation::handleTranslatable as traitHandleTranslatable;

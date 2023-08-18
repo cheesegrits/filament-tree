@@ -20,7 +20,7 @@
             </div>
             <div class="btn-group">
                 <x-filament::button tag="button" data-action="save" wire:loading.attr="disabled" wire:loading.class="cursor-wait opacity-70">
-                    <x-filament-support::loading-indicator class="h-4 w-4" wire:loading wire:target="updateTree" />
+                    <x-filament::loading-indicator class="h-4 w-4" wire:loading wire:target="updateTree" />
                     <span wire:loading.remove wire:target="updateTree">
                         {{ __('filament-tree::filament-tree.button.save') }}
                     </span>
@@ -77,15 +77,15 @@
         @else
             <x-slot name="header">
                 @if ($heading)
-                    <x-filament-support::modal.heading>
+                    <x-filament::modal.heading>
                         {{ $heading }}
-                    </x-filament-support::modal.heading>
+                    </x-filament::modal.heading>
                 @endif
 
                 @if ($subheading)
-                    <x-filament-support::modal.subheading>
+                    <x-slot name="subheading">
                         {{ $subheading }}
-                    </x-filament-support::modal.subheading>
+                    </x-slot>
                 @endif
             </x-slot>
         @endif
@@ -99,11 +99,11 @@
 
         @if (count($modalActions ?? []))
             <x-slot name="footer">
-                <x-filament-support::modal.actions :full-width="$action?->isModalCentered()">
+{{--                <x-filament-support::modal.actions :full-width="$action?->isModalCentered()">--}}
                     @foreach ($modalActions as $modalAction)
                         {{ $modalAction }}
                     @endforeach
-                </x-filament-support::modal.actions>
+{{--                </x-filament-support::modal.actions>--}}
             </x-slot>
         @endif
     </x-filament-tree::modal>

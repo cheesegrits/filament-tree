@@ -2,8 +2,8 @@
 
 namespace SolutionForest\FilamentTree\Pages;
 
-use Filament\Pages\Actions\Action;
-use Filament\Pages\Actions\CreateAction;
+use Filament\Actions\Action;
+use Filament\Actions\CreateAction;
 use Filament\Pages\Page;
 use SolutionForest\FilamentTree\Actions;
 use SolutionForest\FilamentTree\Components\Tree;

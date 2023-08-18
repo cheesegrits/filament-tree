@@ -2,7 +2,7 @@
 
 namespace SolutionForest\FilamentTree\Actions\Modal;
 
-use Filament\Support\Actions\Modal\Actions\Action as BaseAction;
+use Filament\Actions\StaticAction as BaseAction;
 
 class Action extends BaseAction
 {

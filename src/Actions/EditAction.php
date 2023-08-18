@@ -4,7 +4,7 @@ namespace SolutionForest\FilamentTree\Actions;
 
 use Closure;
 use Filament\Forms\ComponentContainer;
-use Filament\Support\Actions\Concerns\CanCustomizeProcess;
+use Filament\Actions\Concerns\CanCustomizeProcess;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 
